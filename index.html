@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p>画布：</p>
+<canvas id="myCanvas" width="500" height="300" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+function PicMoving(cfg){
+  var nowPic = cfg.now?cfg.now:1;  //当前图片
+  var picTotal = cfg.picTotal; //图片总数
+  var container = cfg.container;//图片容器的class
+  var picPath = cfg.picPath; //图片文件路径
+  var picPre = cfg.picPre;//图片前缀,如 water1.png;前缀是water
+  var picType = cfg.picType?cfg.picType:"png";//图片类型是png,没有“.”
+  var speed = cfg.speed?cfg.speed:100;
+  var loop = cfg.loop; //是否循环
+  var c   = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d");
+  var moving = setInterval(animation,speed);
+  function animation(){     
+    var img = new Image();
+    img.src = picPath+picPre+nowPic+"."+picType;
+
+    ctx.clearRect(0,0,c.width,c.height);
+    nowPic++;       
+    if(!loop && nowPic>picTotal){
+      clearInterval(moving);
+      ctx.drawImage(img,10,10);
+      return false;
+    }
+console.log(img.src)
+    ctx.drawImage(img,10,10);
+    nowPic = nowPic > picTotal ? 1: nowPic;
+  } 
+}
+window.onload = function() {
+  var coin = new PicMoving({
+    picTotal:6,
+    container:"shake",
+    picPath:"",
+    picPre:"heart-",
+    loop:true,
+    speed:300
+  });
+}
+</script>
+
+</body>
+</html>
