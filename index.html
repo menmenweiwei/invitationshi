@@ -13,6 +13,8 @@
     <!--<link href="css/m-game.css" rel="stylesheet" type="text/css" >-->
     <script src="jquery-1.7.2.min.js"></script>
     <script src="common.js"></script>
+    <style>
+        .float{ position:fixed; left:0px; top:0px; z-index:100; width:100%; height:100%; background:rgba(0,0,0,0.7);}</style>
     <script>
         var siteUrl = "http://invitationshi.weismiley.com";
         $(function(){
@@ -55,6 +57,11 @@ background-repeat: no-repeat;
 background-position: 48% 9%;">
 <img src="./images/up.png" id="js_img"  width="278" height="307" style="display: block;margin-top: 0px;margin-left: 5px;">
 </div>
+
+<!--start:loading弹层-->
+<div class="float js_loading" style="background: #fff;">
+    <p class="loading1" style="width:226px;height:181px;padding:0;margin: 100px auto;"><img src="images/loading.gif" style="width: 226px;"></p>
+</div>
 <script>
 function PicMoving(cfg){
   var nowPic = cfg.now?cfg.now:1;  //当前图片
@@ -86,14 +93,17 @@ console.log(img.src)
   } 
 }
 window.onload = function() {
-  var coin = new PicMoving({
-    picTotal:9,
-    container:"js_img",
-    picPath:"./images/",
-    picPre:"",
-    loop:true,
-    speed:200
-  });
+    setTimeout(function(){
+        $('.js_loading').slideUp();
+      var coin = new PicMoving({
+        picTotal:9,
+        container:"js_img",
+        picPath:"./images/",
+        picPre:"",
+        loop:true,
+        speed:200
+      });
+    }, 1500);
 }
 </script>
 
