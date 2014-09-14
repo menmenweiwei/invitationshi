@@ -1,11 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<body>
-<p>画布333555： ：</p>
-<canvas id="myCanvas" width="500" height="300" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+<head>
+    <meta charset="UTF-8">
+    <!--<base href="http://invitationshi.weismiley.com" />-->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>婚宴邀约</title>
+    <!--<link href="css/base.css" rel="stylesheet" type="text/css" >-->
+    <!--<link href="css/m-rule.css" rel="stylesheet" type="text/css" >-->
+    <!--<link href="css/m-game.css" rel="stylesheet" type="text/css" >-->
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="common.js"></script>
+    <script>
+        var siteUrl = "http://invitationshi.weismiley.com";
+        $(function(){
 
+            hideWeixinToolBar();
+            var shareImg   = siteUrl+'/images/sweety.png';
+            var shareUrl   = siteUrl;
+            var shareTitle = '施桂杞与倪雅静婚宴邀约';
+            var shareDesc  = '';
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                    shareFriend(shareImg, shareUrl, shareTitle, shareDesc);
+                });
+
+                WeixinJSBridge.on('menu:share:timeline', function(argv){
+                    shareTimeline(shareImg, shareUrl, shareTitle, shareDesc);
+                });
+
+                WeixinJSBridge.on('menu:share:weibo', function(argv){
+                    shareWeibo(shareUrl, shareDesc);
+                });
+            }, false);
+        });
+    </script>
+</head>
+<body style="position: relative;
+background-image: url('./images/bg.png');
+background-size: cover;
+/* background-color: #d02a3e; */
+background-repeat: no-repeat;
+background-position: 0 0;">
+<!--<img src="./images/happy.png" style="display: block;margin: 0 auto;width: 320px;">-->
+<!--<canvas id="myCanvas" width="278" height="307" style="border:1px solid #d3d3d3;">-->
+<!--&lt;!&ndash;Your browser does not support the HTML5 canvas tag.&ndash;&gt;-->
+<!--</canvas>-->
+<div style="width: 320px;margin: 0 auto;position: relative;
+background-image: url('./images/happy.png');
+background-size: 228px;height: 480px;padding-top: 130px;
+background-repeat: no-repeat;
+background-position: 48% 9%;">
+<img src="./images/up.png" id="js_img"  width="278" height="307" style="display: block;margin-top: 0px;margin-left: 5px;">
+</div>
 <script>
 function PicMoving(cfg){
   var nowPic = cfg.now?cfg.now:1;  //当前图片
@@ -16,33 +65,34 @@ function PicMoving(cfg){
   var picType = cfg.picType?cfg.picType:"png";//图片类型是png,没有“.”
   var speed = cfg.speed?cfg.speed:100;
   var loop = cfg.loop; //是否循环
-  var c   = document.getElementById("myCanvas");
-  var ctx = c.getContext("2d");
+//  var c   = document.getElementById("myCanvas");
+//  var ctx = c.getContext("2d");
   var moving = setInterval(animation,speed);
   function animation(){     
-    var img = new Image();
+   var img = new Image();
     img.src = picPath+picPre+nowPic+"."+picType;
 
-    ctx.clearRect(0,0,c.width,c.height);
+//    ctx.clearRect(0,0,c.width,c.height);
     nowPic++;       
     if(!loop && nowPic>picTotal){
-      clearInterval(moving);
-      ctx.drawImage(img,10,10);
+//      clearInterval(moving);
+//      ctx.drawImage(img,10,10);
       return false;
     }
+      $('#'+container).attr('src', img.src);
 console.log(img.src)
-    ctx.drawImage(img,10,10);
+//    ctx.drawImage(img,10,10);
     nowPic = nowPic > picTotal ? 1: nowPic;
   } 
 }
 window.onload = function() {
   var coin = new PicMoving({
-    picTotal:6,
-    container:"shake",
-    picPath:"",
-    picPre:"heart-",
+    picTotal:9,
+    container:"js_img",
+    picPath:"./images/",
+    picPre:"",
     loop:true,
-    speed:300
+    speed:200
   });
 }
 </script>
