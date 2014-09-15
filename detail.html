@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+    <!--<base href="http://invitationshi.weismiley.com" />-->
+    <!--<meta charset="UTF-8">-->
+    <!--<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />-->
+    <!--<meta content="yes" name="apple-mobile-web-app-capable" />-->
+    <!--<meta content="black" name="apple-mobile-web-app-status-bar-style" />-->
+    <!--<meta content="telephone=no" name="format-detection" />-->
+
+    <meta charset="utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="viewport" content="width=640, user-scalable=no">
+    <meta name="MobileOptimized" content="640" />
+
+
+    <title>婚宴邀约</title>
+    <script src="jquery-1.7.2.min.js"></script>
+    <script src="common.js"></script>
+    <style>
+        .float{ position:fixed; left:0px; top:0px; z-index:100; width:100%; height:100%; background:rgba(0,0,0,0.7);}</style>
+    <script>
+        for ( i = 1; i < 10; i++)
+        {
+            common.loadImage("./images/" + i +".png")
+        }
+        var siteUrl = "http://invitationshi.weismiley.com";
+        $(function(){
+
+            hideWeixinToolBar();
+            var shareImg   = siteUrl+'/images/share.png';
+            var shareUrl   = siteUrl;
+            var shareTitle = '施桂杞与倪雅静婚宴邀约';
+            var shareDesc  = '';
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                    shareFriend(shareImg, shareUrl, shareTitle, shareDesc);
+                });
+
+                WeixinJSBridge.on('menu:share:timeline', function(argv){
+                    shareTimeline(shareImg, shareUrl, shareTitle, shareDesc);
+                });
+
+                WeixinJSBridge.on('menu:share:weibo', function(argv){
+                    shareWeibo(shareUrl, shareDesc);
+                });
+            }, false);
+        });
+    </script>
+</head>
+<body style="position: relative;
+background-image: url('./images/bg.png');
+background-size: 1200px 1136px;
+/* background-color: #d02a3e; */
+background-repeat: no-repeat;
+background-position: center;">
+<div style="width: 640px;margin: 0 auto;position: relative;">
+    <img src="./images/detail.png" id="js_img"  width="556" height="614" style="display: block;margin-top: 40px;margin-left: 27px;">
+    <a href="javascript:void(0);" style="width: 320px;display: block;height: 98px;margin: 10px auto;">
+        <img src="./images/wedding.png" style="width: 320px;height: 98px;display: block;margin: 0;">
+    </a>
+</div>
+<img src="./images/1.png" style="display: none;" />
+<img src="./images/2.png" style="display: none;" />
+<img src="./images/3.png" style="display: none;" />
+<img src="./images/4.png" style="display: none;" />
+<img src="./images/5.png" style="display: none;" />
+<img src="./images/6.png" style="display: none;" />
+<img src="./images/7.png" style="display: none;" />
+<img src="./images/8.png" style="display: none;" />
+<img src="./images/9.png" style="display: none;" />
+<!--start:loading弹层-->
+<!--<div class="float js_loading" style="background: #fff;">-->
+    <!--<p class="loading1" style="width:452px;height:362px;padding:0;margin: 100px auto;"><img src="images/loading.gif" style="width: 452px;"></p>-->
+<!--</div>-->
+<script>
+    $(function(){
+
+    });
+</script>
+</body>
+</html>
