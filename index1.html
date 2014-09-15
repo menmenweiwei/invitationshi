@@ -62,7 +62,7 @@ background-position: 48% 9%;">
 <img src="./images/mini/5.png" style="display: none;" />
 <img src="./images/mini/6.png" style="display: none;" />
 <img src="./images/mini/7.png" style="display: none;" />
-<img src="./images/mini/8.png" style="display: none;" /> 
+<img src="./images/mini/8.png" style="display: none;" />
 <img src="./images/mini/9.png" style="display: none;" />
 <!--start:loading弹层-->
 <div class="float js_loading" style="background: #fff;">
@@ -92,12 +92,12 @@ background-position: 48% 9%;">
             nowPic++;
             if(!loop && nowPic>picTotal){
                 clearInterval(moving);
-                ctx.drawImage(img,10,10);
+                ctx.drawImage(img,10,10,278,307);
                 return false;
             }
             //$('#'+container).attr('src', img.src);
             console.log(img.src)
-            ctx.drawImage(img,10,10);
+            ctx.drawImage(img,10,10,278,307);
             nowPic = nowPic > picTotal ? 1: nowPic;
         }
     }
@@ -107,7 +107,7 @@ background-position: 48% 9%;">
             var coin = new PicMoving({
                 picTotal:9,
                 container:"js_img",
-                picPath:"./images/mini/",
+                picPath:"./images/",
                 picPre:"",
                 loop:true,
                 speed:200
