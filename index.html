@@ -68,6 +68,9 @@ background-position: 48% 9%;">
     <p class="loading1" style="width:226px;height:181px;padding:0;margin: 100px auto;"><img src="images/loading.gif" style="width: 226px;"></p>
 </div>
 <script>
+document.body.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+}, false);
 function PicMoving(cfg){
   var nowPic = cfg.now?cfg.now:1;  //当前图片
   var picTotal = cfg.picTotal; //图片总数
