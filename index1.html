@@ -55,15 +55,15 @@ background-repeat: no-repeat;
 background-position: 48% 9%;">
     <canvas id="myCanvas" width="278" height="317" style="display: block;margin-top: 0px;margin-left: 5px"></canvas>
 </div>
-<img src="./images/mini/1.png" style="display: none;" />
-<img src="./images/mini/2.png" style="display: none;" />
-<img src="./images/mini/3.png" style="display: none;" />
-<img src="./images/mini/4.png" style="display: none;" />
-<img src="./images/mini/5.png" style="display: none;" />
-<img src="./images/mini/6.png" style="display: none;" />
-<img src="./images/mini/7.png" style="display: none;" />
-<img src="./images/mini/8.png" style="display: none;" />
-<img src="./images/mini/9.png" style="display: none;" />
+<img src="./images/1.png" style="display: none;" />
+<img src="./images/2.png" style="display: none;" />
+<img src="./images/3.png" style="display: none;" />
+<img src="./images/4.png" style="display: none;" />
+<img src="./images/5.png" style="display: none;" />
+<img src="./images/6.png" style="display: none;" />
+<img src="./images/7.png" style="display: none;" />
+<img src="./images/8.png" style="display: none;" />
+<img src="./images/9.png" style="display: none;" />
 <!--start:loading弹层-->
 <div class="float js_loading" style="background: #fff;">
     <p class="loading1" style="width:226px;height:181px;padding:0;margin: 100px auto;"><img src="images/loading.gif" style="width: 226px;"></p>
@@ -95,8 +95,6 @@ background-position: 48% 9%;">
                 ctx.drawImage(img,10,10,278,307);
                 return false;
             }
-            //$('#'+container).attr('src', img.src);
-            console.log(img.src)
             ctx.drawImage(img,10,10,278,307);
             nowPic = nowPic > picTotal ? 1: nowPic;
         }
@@ -115,6 +113,5 @@ background-position: 48% 9%;">
         }, 3500);
     }
 </script>
-
 </body>
 </html>
