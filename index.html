@@ -8,15 +8,11 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
     <title>婚宴邀约</title>
-    <!--<link href="css/base.css" rel="stylesheet" type="text/css" >-->
-    <!--<link href="css/m-rule.css" rel="stylesheet" type="text/css" >-->
-    <!--<link href="css/m-game.css" rel="stylesheet" type="text/css" >-->
     <script src="jquery-1.7.2.min.js"></script>
     <script src="common.js"></script>
     <style>
         .float{ position:fixed; left:0px; top:0px; z-index:100; width:100%; height:100%; background:rgba(0,0,0,0.7);}</style>
     <script>
-
          for ( i = 1; i < 10; i++)
           {
              common.loadImage("./images/" + i +".png")
@@ -51,10 +47,6 @@ background-size: 600px 568px;
 /* background-color: #d02a3e; */
 background-repeat: no-repeat;
 background-position: center;">
-<!--<img src="./images/happy.png" style="display: block;margin: 0 auto;width: 320px;">-->
-<!--<canvas id="myCanvas" width="278" height="307" style="border:1px solid #d3d3d3;">-->
-<!--&lt;!&ndash;Your browser does not support the HTML5 canvas tag.&ndash;&gt;-->
-<!--</canvas>-->
 <div style="width: 320px;margin: 0 auto;position: relative;
 background-image: url('./images/happy.png');
 background-size: 228px;height: 480px;padding-top: 130px;
@@ -62,7 +54,15 @@ background-repeat: no-repeat;
 background-position: 48% 9%;">
 <img src="./images/up.png" id="js_img"  width="278" height="307" style="display: block;margin-top: 0px;margin-left: 5px;">
 </div>
-
+<img src="./images/1.png" style="display: none;" />
+<img src="./images/2.png" style="display: none;" />
+<img src="./images/3.png" style="display: none;" />
+<img src="./images/4.png" style="display: none;" />
+<img src="./images/5.png" style="display: none;" />
+<img src="./images/6.png" style="display: none;" />
+<img src="./images/7.png" style="display: none;" />
+<img src="./images/8.png" style="display: none;" />
+<img src="./images/9.png" style="display: none;" />
 <!--start:loading弹层-->
 <div class="float js_loading" style="background: #fff;">
     <p class="loading1" style="width:226px;height:181px;padding:0;margin: 100px auto;"><img src="images/loading.gif" style="width: 226px;"></p>
@@ -80,23 +80,15 @@ function PicMoving(cfg){
   var picType = cfg.picType?cfg.picType:"png";//图片类型是png,没有“.”
   var speed = cfg.speed?cfg.speed:100;
   var loop = cfg.loop; //是否循环
-//  var c   = document.getElementById("myCanvas");
-//  var ctx = c.getContext("2d");
   var moving = setInterval(animation,speed);
   function animation(){     
    var img = new Image();
     img.src = picPath+picPre+nowPic+"."+picType;
-
-//    ctx.clearRect(0,0,c.width,c.height);
     nowPic++;       
     if(!loop && nowPic>picTotal){
-//      clearInterval(moving);
-//      ctx.drawImage(img,10,10);
       return false;
     }
-      $('#'+container).attr('src', img.src);
-console.log(img.src)
-//    ctx.drawImage(img,10,10);
+    $('#'+container).attr('src', img.src);
     nowPic = nowPic > picTotal ? 1: nowPic;
   } 
 }
@@ -114,6 +106,5 @@ window.onload = function() {
     }, 3500);
 }
 </script>
-
 </body>
 </html>
