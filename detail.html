@@ -56,13 +56,13 @@ background-size: 1200px 1136px;
 background-color: #d02a3e;
 background-repeat: no-repeat;
 background-position: center;">
-<div style="width: 640px;margin: 0 auto;position: relative;" class="js_invitationBox">
+<div style="height: 960px;width: 640px;margin: 0 auto;position: relative;" class="js_invitationBox">
     <img src="./images/detail.png" width="556" height="614" style="display: block;margin-top: 40px;margin-left: 27px;">
-    <a class="js_showWedding" href="javascript:void(0);" style="width: 320px;display: block;height: 98px;margin: 10px auto;">
+    <a class="js_showWedding" href="javascript:void(0);" style="width: 320px;display: block;height: 98px;margin: 40px auto;">
         <img src="./images/wedding.png" style="width: 320px;height: 98px;display: block;margin: 0;">
     </a>
 </div>
-<div style="width: 640px;margin: 0 auto;padding:0;position: relative;display:none;margin-left: -8px;" class="js_weddingBox">
+<div style="overflow: auto;height: 960px;width: 640px;margin: 0 auto;padding:0;position: relative;display:none;margin-left: -8px;" class="js_weddingBox">
     <a class="js_showInvitation" href="javascript:void(0);" style="width: 320px;display: block;height: 98px;margin: 10px auto;">
         <img src="./images/invitation.png" style="width: 320px;height: 98px;display: block;margin: 0;">
     </a>
@@ -129,7 +129,7 @@ background-position: center;">
             $('.js_invitationBox').show();
             $('.js_invitationBox').css('top' , '-960px');
             $('.js_weddingBox').css('margin-top', '-960px');
-            $('.js_weddingBox').animate({ top: '960px' }, 2000, function(){
+            $('.js_weddingBox').animate({ top: '1960px' }, 2000, function(){
                 $('.js_weddingBox').hide();
                 $('.js_weddingBox').css('margin-top', '0px');
             });
